@@ -81,10 +81,10 @@ const getAllBooksHandler = (request, h) => {
         reading,
         finished
     } = request.query;
-    const shelfbook = books;
+    let shelfbook = books;
     // if statenent for get the books
     if (name !== undefined) {
-        shelfbook = shelfbook.filter((book) => book.name.toLowerCase().includes(name.toLowerCase()));
+        shelfbook = books.filter((book) => book.name.toLowerCase().includes(name.toLowerCase()));
     } else if (reading !== undefined) {
         shelfbook = shelfbook.filter((book) => book.reading === !!Number(reading));
     } else if (finished !== undefined) {
